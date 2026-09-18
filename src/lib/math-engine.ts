@@ -11,7 +11,7 @@ export type Problem = {
 };
 
 const R = (a: number, b: number) => a + Math.floor(Math.random() * (b - a + 1));
-const pick = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
+const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)] as T;
 const gcd = (a: number, b: number): number => (b ? gcd(b, Math.abs(a % b)) : Math.abs(a));
 const num = (n: number) => (Number.isInteger(n) ? String(n) : String(Math.round(n * 1000) / 1000));
 
@@ -354,11 +354,12 @@ const gens: Record<string, Gen> = {
   trig: (lv, l) => {
     const deg = pick([30, 45, 60]);
     const hyp = pick([2, 4, 6, 8, 10]);
-    const sin: Record<number, number> = { 30: 0.5, 45: Math.SQRT1_2, 60: Math.sqrt(3) / 2 };
-    const res = Math.round(hyp * sin[deg] * 1000) / 1000;
+    const sinTable: Record<number, number> = { 30: 0.5, 45: Math.SQRT1_2, 60: Math.sqrt(3) / 2 };
+    const sinv = sinTable[deg] as number;
+    const res = Math.round(hyp * sinv * 1000) / 1000;
     return make("trig", lv, l === "bg" ? `В правоъгълен триъгълник хипотенузата е ${hyp}, а ъгълът е ${deg}°. Колко е срещулежащият катет? (до 3 знака)` : `In a right triangle the hypotenuse is ${hyp} and the angle is ${deg}°. Find the opposite leg (3 decimals).`, num(res), [
       l === "bg" ? `sin(${deg}°) = срещулежащ катет : хипотенуза.` : `sin(${deg}°) = opposite : hypotenuse.`,
-      l === "bg" ? `sin(${deg}°) = ${num(Math.round(sin[deg] * 1000) / 1000)}.` : `sin(${deg}°) = ${num(Math.round(sin[deg] * 1000) / 1000)}.`,
+      l === "bg" ? `sin(${deg}°) = ${num(Math.round(sinv * 1000) / 1000)}.` : `sin(${deg}°) = ${num(Math.round(sinv * 1000) / 1000)}.`,
       l === "bg" ? `катет = ${hyp} · sin(${deg}°) = ${num(res)}.` : `leg = ${hyp} · sin(${deg}°) = ${num(res)}.`,
     ]);
   },
@@ -474,11 +475,11 @@ export const CURRICULUM: Record<number, string[]> = {
 };
 
 export function topicsForGrade(grade: number) {
-  return CURRICULUM[grade] ?? CURRICULUM[5];
+  return CURRICULUM[grade] ?? CURRICULUM[5] ?? [];
 }
 
 export function generate(topicId: string, level: number, lang: Lang): Problem {
-  const gen = gens[topicId] ?? gens.addsub100;
+  const gen = gens[topicId] ?? (gens["addsub100"] as Gen);
   return gen(Math.min(5, Math.max(1, level)), lang);
 }
 
@@ -492,7 +493,7 @@ export function isCorrect(problem: Problem, input: string) {
   const val = (s: string) => {
     if (s.includes("/")) {
       const [n, d] = s.split("/").map(Number);
-      return d ? n / d : NaN;
+      return n !== undefined && d ? n / d : NaN;
     }
     return Number(s);
   };

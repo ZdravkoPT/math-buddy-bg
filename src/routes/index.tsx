@@ -89,7 +89,7 @@ function Home() {
                   if (!s.topics[id]) s.topics[id] = { level: lvl, correct: 0, total: 0 };
                 });
               });
-              navigate({ to: "/practice" });
+              navigate({ to: "/practice", search: { topic: undefined } });
             }}
             className="tap mt-6 w-full rounded-2xl bg-primary py-3.5 font-display text-sm font-semibold text-primary-foreground disabled:opacity-40"
           >
@@ -116,6 +116,7 @@ function Home() {
         <div className="mt-4 flex items-center gap-3">
           <Link
             to="/practice"
+            search={{ topic: undefined }}
             className="tap flex-1 rounded-2xl bg-primary py-3.5 text-center font-display text-sm font-semibold text-primary-foreground"
           >
             {t("continue")}

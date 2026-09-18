@@ -9,7 +9,7 @@ const SESSION_LENGTH = 10;
 
 export const Route = createFileRoute("/practice")({
   validateSearch: (search: Record<string, unknown>) => ({
-    topic: typeof search.topic === "string" ? search.topic : undefined,
+    topic: typeof search["topic"] === "string" ? (search["topic"] as string) : undefined,
   }),
   head: () => ({
     meta: [
