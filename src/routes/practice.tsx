@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Shell } from "@/components/Shell";
 import { useI18n } from "@/lib/i18n";
 import { TOPIC_LABEL, generate, isCorrect, topicsForGrade, type Problem } from "@/lib/math-engine";
+import { KIND_LABEL, paperById, paperProblems } from "@/lib/materials";
 import { locked, today, topicState, update, useStore } from "@/lib/progress";
 
 const SESSION_LENGTH = 10;
