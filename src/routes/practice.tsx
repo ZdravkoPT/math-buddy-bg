@@ -384,7 +384,7 @@ function Practice() {
           <Link
             key={id}
             to="/practice"
-            search={{ topic: id }}
+            search={{ topic: id, paper: undefined }}
             className={`tap rounded-full px-3 py-1.5 text-[12px] font-semibold ${
               id === topicId ? "bg-primary text-primary-foreground" : "glass text-muted-foreground"
             }`}
