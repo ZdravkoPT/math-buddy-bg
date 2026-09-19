@@ -66,7 +66,7 @@ function Pricing() {
 
       <Link
         to="/practice"
-        search={{ topic: undefined }}
+        search={{ topic: undefined, paper: undefined }}
         className="tap mt-5 block rounded-2xl glass py-3.5 text-center font-display text-sm font-semibold"
       >
         {t("continue")}

@@ -62,6 +62,18 @@ const dict = {
   sessionDone: { bg: "Сесията е завършена", en: "Session complete" },
   again: { bg: "Още една сесия", en: "One more session" },
   of: { bg: "от", en: "of" },
+  materials: { bg: "Материали", en: "Materials" },
+  materialsSub: {
+    bg: "Теми от учебника, контролни, НВО и матура по български учебни програми.",
+    en: "Textbook units, class tests, national exams and matura, following the Bulgarian curriculum.",
+  },
+  units: { bg: "Раздели от учебника", en: "Textbook units" },
+  papers: { bg: "Изпити и контролни", en: "Exams and tests" },
+  openPaper: { bg: "Решавай варианта", en: "Solve this paper" },
+  paperDone: { bg: "Вариантът е завършен", en: "Paper complete" },
+  paperScore: { bg: "Верни отговори", en: "Correct answers" },
+  restart: { bg: "Отначало", en: "Start over" },
+  noPapers: { bg: "За този клас още подготвяме варианти.", en: "Papers for this grade are on the way." },
 } as const;
 
 export type Key = keyof typeof dict;

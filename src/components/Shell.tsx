@@ -65,12 +65,15 @@ export function Shell({ children }: { children: ReactNode }) {
 
       {children}
 
-      <nav className="mt-8 grid grid-cols-3 gap-2 rounded-2xl glass p-2">
-        <Link to="/" className="tap rounded-xl px-3 py-2.5 text-center text-[13px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }} activeOptions={{ exact: true }}>
+      <nav className="mt-8 grid grid-cols-4 gap-1.5 rounded-2xl glass p-2">
+        <Link to="/" className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }} activeOptions={{ exact: true }}>
           {t("home")}
         </Link>
-        <Link to="/practice" search={{ topic: undefined }} className="tap rounded-xl px-3 py-2.5 text-center text-[13px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
+        <Link to="/practice" search={{ topic: undefined, paper: undefined }} className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
           {t("task")}
+        </Link>
+        <Link to="/materials" className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
+          {t("materials")}
         </Link>
         <Link to="/progress" className="tap rounded-xl px-3 py-2.5 text-center text-[13px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
           {t("progress")}
