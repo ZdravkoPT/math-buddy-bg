@@ -116,7 +116,7 @@ function Home() {
         <div className="mt-4 flex items-center gap-3">
           <Link
             to="/practice"
-            search={{ topic: undefined }}
+            search={{ topic: undefined, paper: undefined }}
             className="tap flex-1 rounded-2xl bg-primary py-3.5 text-center font-display text-sm font-semibold text-primary-foreground"
           >
             {t("continue")}
@@ -143,7 +143,7 @@ function Home() {
               <Link
                 key={id}
                 to="/practice"
-                search={{ topic: id }}
+                search={{ topic: id, paper: undefined }}
                 className="tap flex items-center gap-3 rounded-2xl glass p-3"
               >
                 <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-accent font-display text-sm font-semibold text-accent-foreground">

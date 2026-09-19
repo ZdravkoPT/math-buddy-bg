@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MaterialsRouteImport } from './routes/materials'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ProgressRouteImport } from './routes/progress'
@@ -17,6 +18,11 @@ import { Route as ProgressRouteImport } from './routes/progress'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialsRoute = MaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PracticeRoute = PracticeRouteImport.update({
@@ -37,12 +43,14 @@ const ProgressRoute = ProgressRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/practice' | '/pricing' | '/progress'
+  fullPaths: '/' | '/materials' | '/practice' | '/pricing' | '/progress'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/practice' | '/pricing' | '/progress'
-  id: '__root__' | '/' | '/practice' | '/pricing' | '/progress'
+  to: '/' | '/materials' | '/practice' | '/pricing' | '/progress'
+  id: '__root__' | '/' | '/materials' | '/practice' | '/pricing' | '/progress'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MaterialsRoute: typeof MaterialsRoute
   PracticeRoute: typeof PracticeRoute
   PricingRoute: typeof PricingRoute
   ProgressRoute: typeof ProgressRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materials': {
+      id: '/materials'
+      path: '/materials'
+      fullPath: '/materials'
+      preLoaderRoute: typeof MaterialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/practice': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MaterialsRoute: MaterialsRoute,
   PracticeRoute: PracticeRoute,
   PricingRoute: PricingRoute,
   ProgressRoute: ProgressRoute,
