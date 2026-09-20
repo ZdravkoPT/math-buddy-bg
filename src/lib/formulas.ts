@@ -12,7 +12,7 @@ export type FormulaSection = {
 export const FORMULA_SECTIONS: FormulaSection[] = [
   {
     id: "arith",
-    title: { bg: "Числа и действия", grades: "", en: "Numbers and operations" } as unknown as Bi,
+    title: { bg: "Числа и действия", en: "Numbers and operations" },
     grades: "1–6",
     rows: [
       { name: { bg: "Разместително свойство", en: "Commutative law" }, formula: "a + b = b + a;  a · b = b · a" },
@@ -25,7 +25,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "fractions",
-    title: { bg: "Дроби, десетични числа, проценти", en: "Fractions, decimals, percent" } as Bi,
+    title: { bg: "Дроби, десетични числа, проценти", en: "Fractions, decimals, percent" },
     grades: "4–7",
     rows: [
       { name: { bg: "Събиране на дроби", en: "Adding fractions" }, formula: "a/b + c/d = (ad + bc)/(bd)" },
@@ -39,7 +39,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "algebra",
-    title: { bg: "Алгебра — степени и тъждества", en: "Algebra — powers and identities" } as Bi,
+    title: { bg: "Алгебра — степени и тъждества", en: "Algebra — powers and identities" },
     grades: "7–9",
     rows: [
       { name: { bg: "Произведение на степени", en: "Product of powers" }, formula: "aᵐ · aⁿ = aᵐ⁺ⁿ" },
@@ -55,7 +55,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "equations",
-    title: { bg: "Уравнения и функции", en: "Equations and functions" } as Bi,
+    title: { bg: "Уравнения и функции", en: "Equations and functions" },
     grades: "7–10",
     rows: [
       { name: { bg: "Линейно уравнение", en: "Linear equation" }, formula: "ax + b = 0 ⇒ x = −b/a,  a ≠ 0" },
@@ -68,7 +68,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "geometry",
-    title: { bg: "Геометрия — лице и обиколка", en: "Geometry — area and perimeter" } as Bi,
+    title: { bg: "Геометрия — лице и обиколка", en: "Geometry — area and perimeter" },
     grades: "4–10",
     rows: [
       { name: { bg: "Правоъгълник", en: "Rectangle" }, formula: "S = a · b;  P = 2(a + b)" },
@@ -87,7 +87,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "trig",
-    title: { bg: "Тригонометрия", en: "Trigonometry" } as Bi,
+    title: { bg: "Тригонометрия", en: "Trigonometry" },
     grades: "9–12",
     rows: [
       { name: { bg: "Основни отношения", en: "Basic ratios" }, formula: "sin α = a/c;  cos α = b/c;  tg α = a/b" },
@@ -101,7 +101,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "sequences",
-    title: { bg: "Прогресии", en: "Progressions" } as Bi,
+    title: { bg: "Прогресии", en: "Progressions" },
     grades: "9–11",
     rows: [
       { name: { bg: "Аритметична — n-ти член", en: "Arithmetic — nth term" }, formula: "aₙ = a₁ + (n − 1)d" },
@@ -113,7 +113,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "logs",
-    title: { bg: "Логаритми и експоненти", en: "Logarithms and exponentials" } as Bi,
+    title: { bg: "Логаритми и експоненти", en: "Logarithms and exponentials" },
     grades: "11–12",
     rows: [
       { name: { bg: "Определение", en: "Definition" }, formula: "log_a b = c ⇔ aᶜ = b,  a > 0, a ≠ 1" },
@@ -124,7 +124,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "stats",
-    title: { bg: "Комбинаторика и вероятности", en: "Combinatorics and probability" } as Bi,
+    title: { bg: "Комбинаторика и вероятности", en: "Combinatorics and probability" },
     grades: "10–12",
     rows: [
       { name: { bg: "Пермутации", en: "Permutations" }, formula: "Pₙ = n!" },
@@ -137,7 +137,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "calculus",
-    title: { bg: "Производни и интеграли", en: "Derivatives and integrals" } as Bi,
+    title: { bg: "Производни и интеграли", en: "Derivatives and integrals" },
     grades: "12",
     rows: [
       { name: { bg: "Степенна функция", en: "Power rule" }, formula: "(xⁿ)′ = n xⁿ⁻¹" },
@@ -151,7 +151,7 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "units",
-    title: { bg: "Мерни единици", en: "Units" } as Bi,
+    title: { bg: "Мерни единици", en: "Units" },
     grades: "1–12",
     rows: [
       { name: { bg: "Дължина", en: "Length" }, formula: "1 м = 100 см = 1000 мм;  1 км = 1000 м" },
