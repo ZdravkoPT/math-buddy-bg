@@ -74,6 +74,27 @@ const dict = {
   paperScore: { bg: "Верни отговори", en: "Correct answers" },
   restart: { bg: "Отначало", en: "Start over" },
   noPapers: { bg: "За този клас още подготвяме варианти.", en: "Papers for this grade are on the way." },
+  learn: { bg: "Уроци", en: "Lessons" },
+  learnSub: {
+    bg: "Прочети теорията с примерни задачи — как се решава и защо е точно така.",
+    en: "Read the theory with worked examples — how to solve it and why it works.",
+  },
+  lessons: { bg: "Уроци за твоя клас", en: "Lessons for your grade" },
+  openLesson: { bg: "Прочети урока", en: "Read the lesson" },
+  theIdea: { bg: "Идеята", en: "The idea" },
+  whyItWorks: { bg: "Защо е така", en: "Why it works" },
+  rulesToKnow: { bg: "Правила, които трябва да знаеш", en: "Rules to know" },
+  workedExamples: { bg: "Примерни задачи с решение", en: "Worked examples" },
+  whyThisStep: { bg: "Защо така", en: "Why this way" },
+  commonMistakes: { bg: "Чести грешки", en: "Common mistakes" },
+  practiceThis: { bg: "Упражнявай тази тема", en: "Practise this topic" },
+  allLessons: { bg: "Всички уроци", en: "All lessons" },
+  formulas: { bg: "Формули", en: "Formulas" },
+  formulasSub: {
+    bg: "Помагало с всички формули от 1. до 12. клас — под ръка при всяка задача.",
+    en: "A handbook with every formula from grade 1 to 12 — at hand for any task.",
+  },
+  grades: { bg: "клас", en: "grades" },
 } as const;
 
 export type Key = keyof typeof dict;

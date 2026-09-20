@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FormulasRouteImport } from './routes/formulas'
+import { Route as LearnRouteImport } from './routes/learn'
 import { Route as MaterialsRouteImport } from './routes/materials'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -18,6 +20,16 @@ import { Route as ProgressRouteImport } from './routes/progress'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormulasRoute = FormulasRouteImport.update({
+  id: '/formulas',
+  path: '/formulas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MaterialsRoute = MaterialsRouteImport.update({
@@ -43,6 +55,8 @@ const ProgressRoute = ProgressRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/formulas': typeof FormulasRoute
+  '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
@@ -50,6 +64,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/formulas': typeof FormulasRoute
+  '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
@@ -58,6 +74,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/formulas': typeof FormulasRoute
+  '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
@@ -65,14 +83,38 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/materials' | '/practice' | '/pricing' | '/progress'
+  fullPaths:
+    | '/'
+    | '/formulas'
+    | '/learn'
+    | '/materials'
+    | '/practice'
+    | '/pricing'
+    | '/progress'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/materials' | '/practice' | '/pricing' | '/progress'
-  id: '__root__' | '/' | '/materials' | '/practice' | '/pricing' | '/progress'
+  to:
+    | '/'
+    | '/formulas'
+    | '/learn'
+    | '/materials'
+    | '/practice'
+    | '/pricing'
+    | '/progress'
+  id:
+    | '__root__'
+    | '/'
+    | '/formulas'
+    | '/learn'
+    | '/materials'
+    | '/practice'
+    | '/pricing'
+    | '/progress'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FormulasRoute: typeof FormulasRoute
+  LearnRoute: typeof LearnRoute
   MaterialsRoute: typeof MaterialsRoute
   PracticeRoute: typeof PracticeRoute
   PricingRoute: typeof PricingRoute
@@ -86,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formulas': {
+      id: '/formulas'
+      path: '/formulas'
+      fullPath: '/formulas'
+      preLoaderRoute: typeof FormulasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/materials': {
@@ -121,6 +177,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FormulasRoute: FormulasRoute,
+  LearnRoute: LearnRoute,
   MaterialsRoute: MaterialsRoute,
   PracticeRoute: PracticeRoute,
   PricingRoute: PricingRoute,

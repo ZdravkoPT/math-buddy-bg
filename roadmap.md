@@ -9,6 +9,8 @@
 - Progress screen: study time, accuracy, mastery per topic, streak
 - 3 free hours of study time, then 4.50 EUR/month paywall screen
 - Materials screen: textbook units per grade + sample papers (class tests, NVO 4/7/10, matura) with full solutions
+- Lessons screen (/learn): theory per topic — the idea, why it works, rules, worked examples with steps + "why this way", common mistakes
+- Formula handbook (/formulas): 11 sections, grades 1–12 (arithmetic, fractions/percent, identities, equations, geometry, trig, progressions, logs, combinatorics/probability, calculus, units)
 
 ## Open (needs user/platform action)
 - Real subscription billing (Lovable built-in payments needs a Pro workspace plan)
