@@ -193,8 +193,7 @@ function Learn() {
         to="/formulas"
         className="tap mt-5 block rounded-2xl bg-ink py-3.5 text-center font-display text-sm font-semibold text-background"
       >
-        {t("formulas")} · {t("formulasSub").slice(0, 0)}
-        {t("formulas") ? "" : ""}
+        {t("formulas")}
       </Link>
     </Shell>
   );
