@@ -89,7 +89,9 @@ const dict = {
   commonMistakes: { bg: "Чести грешки", en: "Common mistakes" },
   practiceThis: { bg: "Упражнявай тази тема", en: "Practise this topic" },
   allLessons: { bg: "Всички уроци", en: "All lessons" },
-  formulas: { bg: "Формули", en: "Formulas" },
+  formulas: { bg: "Формули и правила", en: "Formulas & rules" },
+  howToSolve: { bg: "Как се решава", en: "How to solve" },
+  matura: { bg: "Матура", en: "Matura" },
   formulasSub: {
     bg: "Помагало с всички формули от 1. до 12. клас — под ръка при всяка задача.",
     en: "A handbook with every formula from grade 1 to 12 — at hand for any task.",
