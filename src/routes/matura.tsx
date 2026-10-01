@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Shell } from "@/components/Shell";
+import { MockExam } from "@/components/MockExam";
 import { useI18n } from "@/lib/i18n";
 import type { Bi } from "@/lib/materials";
 
@@ -180,6 +181,7 @@ function Matura() {
             : "Key exam topics: formulas and a typical task. Try first, then reveal the solution step by step."}
         </p>
       </section>
+      <MockExam />
       <div className="mt-5 space-y-3">
         {TOPICS.map((tp) => (
           <section key={tp.id} className="rounded-3xl glass-strong p-5">
