@@ -81,6 +81,9 @@ export function Shell({ children }: { children: ReactNode }) {
         <Link to="/formulas" className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
           {t("formulas")}
         </Link>
+        <Link to="/matura" className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
+          {t("matura")}
+        </Link>
         <Link to="/progress" className="tap rounded-xl px-2 py-2.5 text-center text-[12px] font-semibold" activeProps={{ className: "bg-primary text-primary-foreground" }}>
           {t("progress")}
         </Link>

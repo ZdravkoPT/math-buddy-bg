@@ -6,12 +6,19 @@ export type FormulaSection = {
   id: string;
   title: Bi;
   grades: string;
+  method?: Bi[];
   rows: FormulaRow[];
 };
 
 export const FORMULA_SECTIONS: FormulaSection[] = [
   {
     id: "arith",
+    method: [
+      { bg: "Прочети задачата и подчертай числата и въпроса.", en: "Read the task, underline the numbers and the question." },
+      { bg: "Реши кое действие е нужно: „общо“ → +, „остават“ → −, „по толкова“ → ·, „разпредели“ → :.", en: "Choose the operation: 'total' → +, 'left' → −, 'each' → ·, 'share' → :." },
+      { bg: "Спазвай реда: скоби, после · и :, накрая + и −.", en: "Order: brackets, then · and :, then + and −." },
+      { bg: "Провери с обратното действие.", en: "Check with the inverse operation." },
+    ],
     title: { bg: "Числа и действия", en: "Numbers and operations" },
     grades: "1–6",
     rows: [
@@ -25,6 +32,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "fractions",
+    method: [
+      { bg: "Приведи дробите към общ знаменател (НОК на знаменателите).", en: "Bring fractions to a common denominator (LCM)." },
+      { bg: "Смесените числа превърни в неправилни дроби.", en: "Turn mixed numbers into improper fractions." },
+      { bg: "При деление умножи по реципрочната дроб.", en: "When dividing, multiply by the reciprocal." },
+      { bg: "Съкрати отговора; при проценти първо запиши p% = p/100.", en: "Simplify; for percent write p% = p/100 first." },
+    ],
     title: { bg: "Дроби, десетични числа, проценти", en: "Fractions, decimals, percent" },
     grades: "4–7",
     rows: [
@@ -39,6 +52,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "algebra",
+    method: [
+      { bg: "Търси формула: квадрат на сбор/разлика, разлика на квадрати.", en: "Look for an identity: square of a sum/difference, difference of squares." },
+      { bg: "Изнеси общ множител пред скоби.", en: "Factor out the common factor." },
+      { bg: "При степени с еднаква основа събирай/изваждай показателите.", en: "Same base: add/subtract exponents." },
+      { bg: "Провери, като разкриеш скобите обратно.", en: "Check by expanding back." },
+    ],
     title: { bg: "Алгебра — степени и тъждества", en: "Algebra — powers and identities" },
     grades: "7–9",
     rows: [
@@ -55,6 +74,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "equations",
+    method: [
+      { bg: "Разкрий скобите и премести неизвестните вляво, числата вдясно.", en: "Expand, move unknowns left and numbers right." },
+      { bg: "Линейно: раздели на коефициента пред x.", en: "Linear: divide by the coefficient of x." },
+      { bg: "Квадратно: запиши a, b, c → D → корени; при D < 0 няма реални корени.", en: "Quadratic: write a, b, c → D → roots; D < 0 means no real roots." },
+      { bg: "Замести корена в началното уравнение за проверка.", en: "Substitute the root back to check." },
+    ],
     title: { bg: "Уравнения и функции", en: "Equations and functions" },
     grades: "7–10",
     rows: [
@@ -68,6 +93,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "geometry",
+    method: [
+      { bg: "Начертай чертеж и отбележи даденото.", en: "Draw a sketch and mark the givens." },
+      { bg: "Избери формулата за фигурата (лице, обиколка, обем).", en: "Pick the formula for the shape." },
+      { bg: "Липсваща страна в правоъгълен триъгълник → Питагор.", en: "Missing side in a right triangle → Pythagoras." },
+      { bg: "Пиши мерните единици (см, см², см³).", en: "Always write units (cm, cm², cm³)." },
+    ],
     title: { bg: "Геометрия — лице и обиколка", en: "Geometry — area and perimeter" },
     grades: "4–10",
     rows: [
@@ -87,6 +118,11 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "trig",
+    method: [
+      { bg: "Определи коя страна е срещулежаща, прилежаща и хипотенуза.", en: "Identify opposite, adjacent and hypotenuse." },
+      { bg: "Правоъгълен триъгълник → sin/cos/tg; произволен → синусова или косинусова теорема.", en: "Right triangle → sin/cos/tg; any triangle → law of sines or cosines." },
+      { bg: "Две страни и ъгъл между тях → косинусова; страна и срещулежащ ъгъл → синусова.", en: "Two sides and included angle → cosines; side and opposite angle → sines." },
+    ],
     title: { bg: "Тригонометрия", en: "Trigonometry" },
     grades: "9–12",
     rows: [
@@ -101,6 +137,11 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "sequences",
+    method: [
+      { bg: "Определи вида: еднаква разлика → аритметична, еднакво частно → геометрична.", en: "Constant difference → arithmetic; constant ratio → geometric." },
+      { bg: "Запиши a₁ и d (или q).", en: "Write a₁ and d (or q)." },
+      { bg: "Замести в формулата за aₙ или Sₙ.", en: "Substitute into the aₙ or Sₙ formula." },
+    ],
     title: { bg: "Прогресии", en: "Progressions" },
     grades: "9–11",
     rows: [
@@ -113,6 +154,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "logs",
+    method: [
+      { bg: "Запиши дефиниционното множество: аргумент > 0, основа > 0 и ≠ 1.", en: "Write the domain: argument > 0, base > 0 and ≠ 1." },
+      { bg: "Сведи до една основа и един логаритъм с правилата.", en: "Use the rules to get one base and one log." },
+      { bg: "Махни логаритъма: log_a x = c ⇒ x = aᶜ.", en: "Remove the log: log_a x = c ⇒ x = aᶜ." },
+      { bg: "Провери корените спрямо ДМ.", en: "Check roots against the domain." },
+    ],
     title: { bg: "Логаритми и експоненти", en: "Logarithms and exponentials" },
     grades: "11–12",
     rows: [
@@ -124,6 +171,11 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "stats",
+    method: [
+      { bg: "Има ли значение редът? Да → вариации/пермутации; не → комбинации.", en: "Does order matter? Yes → arrangements/permutations; no → combinations." },
+      { bg: "За вероятност: n = всички равновъзможни, m = благоприятни.", en: "Probability: n = all equally likely outcomes, m = favourable." },
+      { bg: "„Поне едно“ → смятай чрез противоположното събитие.", en: "'At least one' → use the complement." },
+    ],
     title: { bg: "Комбинаторика и вероятности", en: "Combinatorics and probability" },
     grades: "10–12",
     rows: [
@@ -137,6 +189,12 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "calculus",
+    method: [
+      { bg: "Разбий функцията на сбор, произведение или частно.", en: "Split the function into sum, product or quotient." },
+      { bg: "Приложи правилото за всяка част.", en: "Apply the rule for each part." },
+      { bg: "Екстремум: f′(x) = 0, после знак на f′ около корена.", en: "Extremum: f′(x) = 0, then sign of f′ around the root." },
+      { bg: "Определен интеграл: намери F, после F(b) − F(a).", en: "Definite integral: find F, then F(b) − F(a)." },
+    ],
     title: { bg: "Производни и интеграли", en: "Derivatives and integrals" },
     grades: "12",
     rows: [
@@ -151,6 +209,10 @@ export const FORMULA_SECTIONS: FormulaSection[] = [
   },
   {
     id: "units",
+    method: [
+      { bg: "Превърни всички величини в една и съща единица.", en: "Convert all quantities to the same unit." },
+      { bg: "По-голяма → по-малка единица: умножи; обратно: раздели.", en: "Bigger → smaller unit: multiply; reverse: divide." },
+    ],
     title: { bg: "Мерни единици", en: "Units" },
     grades: "1–12",
     rows: [

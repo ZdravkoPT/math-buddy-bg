@@ -43,6 +43,14 @@ function Formulas() {
                 {s.grades} {t("grades")}
               </span>
             </div>
+            {s.method && (
+              <div className="mt-3 rounded-2xl bg-accent/70 px-3.5 py-3 text-accent-foreground">
+                <p className="font-display text-[11px] font-semibold uppercase tracking-[0.14em]">{t("howToSolve")}</p>
+                <ol className="mt-2 list-decimal space-y-1 pl-4 text-[13px] leading-relaxed">
+                  {s.method.map((m, i) => <li key={i}>{m[lang]}</li>)}
+                </ol>
+              </div>
+            )}
             <ul className="mt-3 space-y-2.5">
               {s.rows.map((r, i) => (
                 <li key={i} className="rounded-2xl bg-card/70 px-3.5 py-3">
