@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FormulasRouteImport } from './routes/formulas'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as MaterialsRouteImport } from './routes/materials'
+import { Route as MaturaRouteImport } from './routes/matura'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ProgressRouteImport } from './routes/progress'
@@ -37,6 +38,11 @@ const MaterialsRoute = MaterialsRouteImport.update({
   path: '/materials',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MaturaRoute = MaturaRouteImport.update({
+  id: '/matura',
+  path: '/matura',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PracticeRoute = PracticeRouteImport.update({
   id: '/practice',
   path: '/practice',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
+  '/matura': typeof MaturaRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
+  '/matura': typeof MaturaRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
+  '/matura': typeof MaturaRoute
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/formulas'
     | '/learn'
     | '/materials'
+    | '/matura'
     | '/practice'
     | '/pricing'
     | '/progress'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/formulas'
     | '/learn'
     | '/materials'
+    | '/matura'
     | '/practice'
     | '/pricing'
     | '/progress'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/formulas'
     | '/learn'
     | '/materials'
+    | '/matura'
     | '/practice'
     | '/pricing'
     | '/progress'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   FormulasRoute: typeof FormulasRoute
   LearnRoute: typeof LearnRoute
   MaterialsRoute: typeof MaterialsRoute
+  MaturaRoute: typeof MaturaRoute
   PracticeRoute: typeof PracticeRoute
   PricingRoute: typeof PricingRoute
   ProgressRoute: typeof ProgressRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MaterialsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/matura': {
+      id: '/matura'
+      path: '/matura'
+      fullPath: '/matura'
+      preLoaderRoute: typeof MaturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/practice': {
       id: '/practice'
       path: '/practice'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   FormulasRoute: FormulasRoute,
   LearnRoute: LearnRoute,
   MaterialsRoute: MaterialsRoute,
+  MaturaRoute: MaturaRoute,
   PracticeRoute: PracticeRoute,
   PricingRoute: PricingRoute,
   ProgressRoute: ProgressRoute,
