@@ -17,6 +17,7 @@ import { Route as MaturaRouteImport } from './routes/matura'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as ApiMaturaPlanRouteImport } from './routes/api/matura-plan'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const ProgressRoute = ProgressRouteImport.update({
   path: '/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiMaturaPlanRoute = ApiMaturaPlanRouteImport.update({
+  id: '/api/matura-plan',
+  path: '/api/matura-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
+  '/api/matura-plan': typeof ApiMaturaPlanRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
+  '/api/matura-plan': typeof ApiMaturaPlanRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/practice': typeof PracticeRoute
   '/pricing': typeof PricingRoute
   '/progress': typeof ProgressRoute
+  '/api/matura-plan': typeof ApiMaturaPlanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/practice'
     | '/pricing'
     | '/progress'
+    | '/api/matura-plan'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/practice'
     | '/pricing'
     | '/progress'
+    | '/api/matura-plan'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/practice'
     | '/pricing'
     | '/progress'
+    | '/api/matura-plan'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   PracticeRoute: typeof PracticeRoute
   PricingRoute: typeof PricingRoute
   ProgressRoute: typeof ProgressRoute
+  ApiMaturaPlanRoute: typeof ApiMaturaPlanRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/matura-plan': {
+      id: '/api/matura-plan'
+      path: '/api/matura-plan'
+      fullPath: '/api/matura-plan'
+      preLoaderRoute: typeof ApiMaturaPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   PracticeRoute: PracticeRoute,
   PricingRoute: PricingRoute,
   ProgressRoute: ProgressRoute,
+  ApiMaturaPlanRoute: ApiMaturaPlanRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

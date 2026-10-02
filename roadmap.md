@@ -13,6 +13,8 @@
 - Formulas & rules with "how to solve" per section; Matura handbook (/matura)
 - Formula handbook (/formulas): 11 sections, grades 1–12 (arithmetic, fractions/percent, identities, equations, geometry, trig, progressions, logs, combinatorics/probability, calculus, units)
 
+- Matura: AI study plan, 21-question timed mock exam with topic report, time per question, revision tips, mistake review
+
 ## Open (needs user/platform action)
 - Real subscription billing (Lovable built-in payments needs a Pro workspace plan)
 - Packaging for Google Play / App Store (wrap the web app after content review)
