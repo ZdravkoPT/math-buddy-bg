@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- AI calls go through server route src/routes/api/* streaming the Lovable AI Gateway Responses API; the key never reaches the browser.
