@@ -16,7 +16,10 @@ export function StudyPlan() {
   const abort = useRef<AbortController | null>(null);
 
   useEffect(() => {
-    try { setWeak(JSON.parse(localStorage.getItem(WEAK_KEY) ?? "[]") as string[]); } catch { /* ignore */ }
+    const load = () => { try { setWeak(JSON.parse(localStorage.getItem(WEAK_KEY) ?? "[]") as string[]); } catch { /* ignore */ } };
+    load();
+    window.addEventListener("matmentor:weak", load);
+    return () => window.removeEventListener("matmentor:weak", load);
   }, []);
 
   async function run() {

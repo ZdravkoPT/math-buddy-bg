@@ -72,7 +72,7 @@ export function MockExam() {
   function finish() {
     logTime(); setDone(true);
     const weak = Object.keys(TOPIC).filter((k) => QUESTIONS.some((q, i) => q.t === k && answers[i] !== q.correct));
-    try { localStorage.setItem(WEAK_KEY, JSON.stringify(weak.map((k) => TOPIC[k as TopicKey].label[lang]))); } catch { /* ignore */ }
+    try { localStorage.setItem(WEAK_KEY, JSON.stringify(weak.map((k) => TOPIC[k as TopicKey].label[lang]))); window.dispatchEvent(new Event("matmentor:weak")); } catch { /* ignore */ }
   }
   function start() { since.current = Date.now(); setStarted(true); }
   function reset() { setStarted(false); setDone(false); setLeft(LIMIT); setIdx(0); setAnswers(QUESTIONS.map(() => null)); setTimes(QUESTIONS.map(() => 0)); }
