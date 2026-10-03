@@ -1,4 +1,5 @@
 import type { Lang } from "./i18n";
+import { EXTRA_GENS, EXTRA_LABELS } from "./extra-gens";
 
 export type Problem = {
   topicId: string;
@@ -421,6 +422,7 @@ const gens: Record<string, Gen> = {
       l === "bg" ? `F(0) = 0, значи резултатът е ${num(res)}.` : `F(0) = 0, so the result is ${num(res)}.`,
     ]);
   },
+  ...EXTRA_GENS,
 };
 
 /* ------------------------------------------------------------------ */
@@ -457,20 +459,21 @@ export const TOPIC_LABEL: Record<string, { bg: string; en: string }> = {
   probability: { bg: "Вероятности", en: "Probability" },
   derivative: { bg: "Производни", en: "Derivatives" },
   integral: { bg: "Интеграли", en: "Integrals" },
+  ...EXTRA_LABELS,
 };
 
 export const CURRICULUM: Record<number, string[]> = {
   1: ["addsub20", "wordsimple"],
   2: ["addsub100", "multable", "wordsimple"],
-  3: ["multable", "divide", "mulcolumn", "wordsimple"],
-  4: ["mulcolumn", "divide", "fracpart", "area"],
-  5: ["fracadd", "fracmul", "decimals", "percent", "area"],
-  6: ["percent", "ratio", "negatives", "gcdlcm", "lineareq"],
-  7: ["lineareq", "powers", "angles", "area", "ratio"],
-  8: ["lineareq", "systems", "pythagoras", "powers", "angles"],
-  9: ["quadratic", "systems", "progression", "pythagoras"],
-  10: ["quadratic", "trig", "progression", "combinatorics"],
-  11: ["logs", "progressiongeo", "trig", "combinatorics"],
+  3: ["multable", "divide", "mulcolumn", "orderops", "wordsimple"],
+  4: ["mulcolumn", "divide", "orderops", "fracpart", "area"],
+  5: ["fracadd", "fracmul", "decimals", "percent", "orderops", "area"],
+  6: ["percent", "ratio", "negatives", "gcdlcm", "exprvalue", "lineareq", "motion"],
+  7: ["exprvalue", "monomials", "identities", "lineareq", "powers", "angles", "area", "ratio", "motion"],
+  8: ["identities", "factoring", "inequality", "abseq", "linfunc", "lineareq", "systems", "pythagoras", "work"],
+  9: ["quadratic", "systems", "inequality", "linfunc", "progression", "pythagoras", "vectors"],
+  10: ["quadratic", "abseq", "trig", "progression", "combinatorics", "vectors"],
+  11: ["logs", "progressiongeo", "trig", "combinatorics", "vectors"],
   12: ["derivative", "integral", "probability", "logs"],
 };
 
