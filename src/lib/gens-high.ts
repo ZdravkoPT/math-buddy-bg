@@ -24,7 +24,7 @@ export const HIGH_GENS: Record<string, Gen> = {
   fraceq: (lv, l) => {
     const T = tr(l);
     const x = R(-4, 8), a = R(1, 5);
-    if (x === -a) return HIGH_GENS.fraceq!(lv, l);
+    if (x === -a) return HIGH_GENS["fraceq"]!(lv, l);
     const k = R(2, 5);
     const c = k * (x + a);
     return mk("fraceq", lv, T(`Реши ${c}/(x ${sg(a)}) = ${k}.`, `Solve ${c}/(x ${sg(a)}) = ${k}.`), String(x), [

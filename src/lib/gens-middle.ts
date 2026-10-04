@@ -59,7 +59,7 @@ export const MIDDLE_GENS: Record<string, Gen> = {
     const T = tr(l);
     const b = R(3, 9), d = R(3, 9);
     const a = R(1, b - 1), c = R(1, d - 1);
-    if (a * d === c * b) return MIDDLE_GENS.fraccompare!(lv, l);
+    if (a * d === c * b) return MIDDLE_GENS["fraccompare"]!(lv, l);
     const big = a * d > c * b ? `${a}/${b}` : `${c}/${d}`;
     return mk("fraccompare", lv, T(`Коя дроб е по-голяма: ${a}/${b} или ${c}/${d}? Напиши я.`, `Which fraction is bigger: ${a}/${b} or ${c}/${d}? Write it.`), big, [
       T(`Привеждаме към общ знаменател ${b * d}.`, `Use the common denominator ${b * d}.`),
@@ -204,7 +204,7 @@ export const MIDDLE_GENS: Record<string, Gen> = {
   algfrac: (lv, l) => {
     const T = tr(l);
     const a = R(1, 6 + lv), x = R(-4, 6);
-    if (x === -a || x === a) return MIDDLE_GENS.algfrac!(lv, l);
+    if (x === -a || x === a) return MIDDLE_GENS["algfrac"]!(lv, l);
     return mk("algfrac", lv, T(`Опрости (x² − ${a * a})/(x − ${a}) и пресметни при x = ${x}.`, `Simplify (x² − ${a * a})/(x − ${a}) and evaluate at x = ${x}.`), String(x + a), [
       T(`Числителят е разлика на квадрати: x² − ${a * a} = (x − ${a})(x + ${a}).`, `The numerator is a difference of squares: (x − ${a})(x + ${a}).`),
       T(`Съкращаваме (x − ${a}) (при x ≠ ${a}): остава x + ${a}.`, `Cancel (x − ${a}) (x ≠ ${a}): x + ${a} remains.`),
