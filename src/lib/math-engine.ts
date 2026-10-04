@@ -1,5 +1,6 @@
 import type { Lang } from "./i18n";
 import { EXTRA_GENS, EXTRA_LABELS } from "./extra-gens";
+import { GEO_GENS, GEO_LABELS } from "./geometry-gens";
 
 export type Problem = {
   topicId: string;
@@ -423,6 +424,7 @@ const gens: Record<string, Gen> = {
     ]);
   },
   ...EXTRA_GENS,
+  ...GEO_GENS,
 };
 
 /* ------------------------------------------------------------------ */
@@ -460,21 +462,22 @@ export const TOPIC_LABEL: Record<string, { bg: string; en: string }> = {
   derivative: { bg: "Производни", en: "Derivatives" },
   integral: { bg: "Интеграли", en: "Integrals" },
   ...EXTRA_LABELS,
+  ...GEO_LABELS,
 };
 
 export const CURRICULUM: Record<number, string[]> = {
   1: ["addsub20", "wordsimple"],
-  2: ["addsub100", "multable", "wordsimple"],
-  3: ["multable", "divide", "mulcolumn", "orderops", "wordsimple"],
-  4: ["mulcolumn", "divide", "orderops", "fracpart", "area"],
-  5: ["fracadd", "fracmul", "decimals", "percent", "orderops", "area"],
-  6: ["percent", "ratio", "negatives", "gcdlcm", "exprvalue", "lineareq", "motion"],
-  7: ["exprvalue", "monomials", "identities", "lineareq", "powers", "angles", "area", "ratio", "motion"],
-  8: ["identities", "factoring", "inequality", "abseq", "linfunc", "lineareq", "systems", "pythagoras", "work"],
-  9: ["quadratic", "systems", "inequality", "linfunc", "progression", "pythagoras", "vectors"],
-  10: ["quadratic", "abseq", "trig", "progression", "combinatorics", "vectors"],
+  2: ["addsub100", "multable", "wordsimple", "tritypes", "square"],
+  3: ["multable", "divide", "mulcolumn", "orderops", "wordsimple", "tritypes", "square"],
+  4: ["mulcolumn", "divide", "orderops", "fracpart", "area", "square", "tritypes", "prism", "cube"],
+  5: ["fracadd", "fracmul", "decimals", "percent", "orderops", "area", "circle", "quadtypes", "cube", "prism"],
+  6: ["percent", "ratio", "negatives", "gcdlcm", "exprvalue", "lineareq", "motion", "circle", "paralelogram", "trapezoid", "rhombus", "cylinder"],
+  7: ["exprvalue", "monomials", "identities", "lineareq", "powers", "angles", "area", "ratio", "motion", "tritypes", "quadtypes", "trapezoid", "rhombus", "cylinder", "cone"],
+  8: ["identities", "factoring", "inequality", "abseq", "linfunc", "lineareq", "systems", "pythagoras", "work", "paralelogram", "trapezoid", "rhombus", "cylinder", "cone", "sphere"],
+  9: ["quadratic", "systems", "inequality", "linfunc", "progression", "pythagoras", "vectors", "trapezoid", "circle"],
+  10: ["quadratic", "abseq", "trig", "progression", "combinatorics", "vectors", "prism", "cylinder"],
   11: ["logs", "progressiongeo", "trig", "combinatorics", "vectors"],
-  12: ["derivative", "integral", "probability", "logs"],
+  12: ["derivative", "integral", "probability", "logs", "cylinder", "cone", "sphere", "prism"],
 };
 
 export function topicsForGrade(grade: number) {
