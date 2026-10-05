@@ -1,6 +1,9 @@
 import type { Lang } from "./i18n";
 import { EXTRA_GENS, EXTRA_LABELS } from "./extra-gens";
 import { GEO_GENS, GEO_LABELS } from "./geometry-gens";
+import { PRIMARY_GENS, PRIMARY_LABELS } from "./gens-primary";
+import { MIDDLE_GENS, MIDDLE_LABELS } from "./gens-middle";
+import { HIGH_GENS, HIGH_LABELS } from "./gens-high";
 
 export type Problem = {
   topicId: string;
@@ -425,6 +428,9 @@ const gens: Record<string, Gen> = {
   },
   ...EXTRA_GENS,
   ...GEO_GENS,
+  ...PRIMARY_GENS,
+  ...MIDDLE_GENS,
+  ...HIGH_GENS,
 };
 
 /* ------------------------------------------------------------------ */
@@ -463,21 +469,24 @@ export const TOPIC_LABEL: Record<string, { bg: string; en: string }> = {
   integral: { bg: "Интеграли", en: "Integrals" },
   ...EXTRA_LABELS,
   ...GEO_LABELS,
+  ...PRIMARY_LABELS,
+  ...MIDDLE_LABELS,
+  ...HIGH_LABELS,
 };
 
 export const CURRICULUM: Record<number, string[]> = {
-  1: ["addsub20", "wordsimple"],
-  2: ["addsub100", "multable", "wordsimple", "tritypes", "square"],
-  3: ["multable", "divide", "mulcolumn", "orderops", "wordsimple", "tritypes", "square"],
-  4: ["mulcolumn", "divide", "orderops", "fracpart", "area", "square", "tritypes", "prism", "cube"],
-  5: ["fracadd", "fracmul", "decimals", "percent", "orderops", "area", "circle", "quadtypes", "cube", "prism"],
-  6: ["percent", "ratio", "negatives", "gcdlcm", "exprvalue", "lineareq", "motion", "circle", "paralelogram", "trapezoid", "rhombus", "cylinder"],
-  7: ["exprvalue", "monomials", "identities", "lineareq", "powers", "angles", "area", "ratio", "motion", "tritypes", "quadtypes", "trapezoid", "rhombus", "cylinder", "cone"],
-  8: ["identities", "factoring", "inequality", "abseq", "linfunc", "lineareq", "systems", "pythagoras", "work", "paralelogram", "trapezoid", "rhombus", "cylinder", "cone", "sphere"],
-  9: ["quadratic", "systems", "inequality", "linfunc", "progression", "pythagoras", "vectors", "trapezoid", "circle"],
-  10: ["quadratic", "abseq", "trig", "progression", "combinatorics", "vectors", "prism", "cylinder"],
-  11: ["logs", "progressiongeo", "trig", "combinatorics", "vectors"],
-  12: ["derivative", "integral", "probability", "logs", "cylinder", "cone", "sphere", "prism"],
+  1: ["addsub20", "wordsimple", "numcompare", "measures", "clock", "shapes", "twostep"],
+  2: ["addsub100", "multable", "wordsimple", "tritypes", "square", "numcompare", "measures", "clock", "shapes", "twostep"],
+  3: ["multable", "divide", "mulcolumn", "orderops", "wordsimple", "tritypes", "square", "bignum", "rounding", "remdiv", "unitconv", "rectangle"],
+  4: ["mulcolumn", "divide", "orderops", "fracpart", "area", "square", "tritypes", "prism", "cube", "bignum", "rounding", "remdiv", "unitconv", "rectangle", "angletypes"],
+  5: ["fracadd", "fracmul", "decimals", "percent", "orderops", "area", "circle", "quadtypes", "cube", "prism", "divisibility", "primes", "fracsimplify", "fraccompare", "angletypes", "unitconv"],
+  6: ["percent", "ratio", "negatives", "gcdlcm", "exprvalue", "lineareq", "motion", "circle", "paralelogram", "trapezoid", "rhombus", "cylinder", "numline", "absval", "proportion", "percentapp", "statmean", "fracsimplify"],
+  7: ["exprvalue", "monomials", "identities", "lineareq", "powers", "angles", "area", "ratio", "motion", "tritypes", "quadtypes", "trapezoid", "rhombus", "cylinder", "cone", "polyadd", "polymul", "parallel", "congruent", "absval"],
+  8: ["identities", "factoring", "inequality", "abseq", "linfunc", "lineareq", "systems", "pythagoras", "work", "paralelogram", "trapezoid", "rhombus", "cylinder", "cone", "sphere", "sqroot", "rationalize", "algfrac", "midline", "inscribed", "polymul"],
+  9: ["quadratic", "systems", "inequality", "linfunc", "progression", "pythagoras", "vectors", "trapezoid", "circle", "biquad", "fraceq", "similar", "rightmetric", "righttrig", "sqroot"],
+  10: ["quadratic", "abseq", "trig", "progression", "combinatorics", "vectors", "prism", "cylinder", "irrational", "quadineq", "sinelaw", "heron", "righttrig"],
+  11: ["logs", "progressiongeo", "trig", "combinatorics", "vectors", "expeq", "logineq", "trigeq", "pyramid", "heron"],
+  12: ["derivative", "integral", "probability", "logs", "cylinder", "cone", "sphere", "prism", "limits", "tangent", "monotonic", "median", "pyramid", "expeq"],
 };
 
 export function topicsForGrade(grade: number) {
