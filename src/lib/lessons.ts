@@ -1,5 +1,6 @@
 import type { Bi } from "./materials";
 import { CURRICULUM } from "./math-engine";
+import { EXTRA_LESSONS } from "./lessons-extra";
 
 export type Example = {
   task: Bi;
@@ -846,6 +847,7 @@ export const LESSONS: Record<string, Lesson> = {
     ],
   }),
 };
+Object.assign(LESSONS, EXTRA_LESSONS);
 
 export function lessonsForGrade(grade: number): Lesson[] {
   const ids = CURRICULUM[grade] ?? [];
