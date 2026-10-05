@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Shell } from "@/components/Shell";
 import { useI18n } from "@/lib/i18n";
+import { QuizRun } from "@/components/QuizRun";
+import { buildQuiz } from "@/lib/quiz";
 import { lessonById, lessonsForGrade } from "@/lib/lessons";
 import { TOPIC_LABEL } from "@/lib/math-engine";
 import { useStore } from "@/lib/progress";
@@ -142,6 +144,13 @@ function Learn() {
             ))}
           </ul>
         </section>
+
+        <QuizRun
+          key={lesson.topicId}
+          title={lang === "bg" ? "Тест по темата (10 въпроса)" : "Topic test (10 questions)"}
+          minutes={15}
+          build={() => buildQuiz([lesson.topicId], 10, 3, lang)}
+        />
 
         <Link
           to="/practice"

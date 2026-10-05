@@ -72,6 +72,11 @@ function Materials() {
         </ol>
       </section>
 
+      <Link to="/competitions" className="tap mt-4 block rounded-3xl bg-ink p-5 text-background">
+        <p className="font-display text-[18px]">{lang === "bg" ? "Състезания по математика" : "Math competitions"}</p>
+        <p className="mt-1 text-[13px] opacity-80">{lang === "bg" ? "Кенгуру, Черноризец Храбър, СМТ, ОМТ, НМС и други — пробни варианти с таймер →" : "Kangaroo, Hrabar, SMT, regional and more — timed practice variants →"}</p>
+      </Link>
+
       <section className="mt-4">
         <p className="font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
           {t("papers")}
