@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompetitionsRouteImport } from './routes/competitions'
 import { Route as FormulasRouteImport } from './routes/formulas'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as MaterialsRouteImport } from './routes/materials'
@@ -22,6 +23,11 @@ import { Route as ApiMaturaPlanRouteImport } from './routes/api/matura-plan'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompetitionsRoute = CompetitionsRouteImport.update({
+  id: '/competitions',
+  path: '/competitions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormulasRoute = FormulasRouteImport.update({
@@ -67,6 +73,7 @@ const ApiMaturaPlanRoute = ApiMaturaPlanRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/competitions': typeof CompetitionsRoute
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/competitions': typeof CompetitionsRoute
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
@@ -90,6 +98,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/competitions': typeof CompetitionsRoute
   '/formulas': typeof FormulasRoute
   '/learn': typeof LearnRoute
   '/materials': typeof MaterialsRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/competitions'
     | '/formulas'
     | '/learn'
     | '/materials'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/competitions'
     | '/formulas'
     | '/learn'
     | '/materials'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/competitions'
     | '/formulas'
     | '/learn'
     | '/materials'
@@ -137,6 +149,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompetitionsRoute: typeof CompetitionsRoute
   FormulasRoute: typeof FormulasRoute
   LearnRoute: typeof LearnRoute
   MaterialsRoute: typeof MaterialsRoute
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/competitions': {
+      id: '/competitions'
+      path: '/competitions'
+      fullPath: '/competitions'
+      preLoaderRoute: typeof CompetitionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/formulas': {
@@ -217,6 +237,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompetitionsRoute: CompetitionsRoute,
   FormulasRoute: FormulasRoute,
   LearnRoute: LearnRoute,
   MaterialsRoute: MaterialsRoute,
