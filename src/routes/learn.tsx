@@ -6,6 +6,7 @@ import { buildQuiz } from "@/lib/quiz";
 import { lessonById, lessonsForGrade } from "@/lib/lessons";
 import { TOPIC_LABEL } from "@/lib/math-engine";
 import { useStore } from "@/lib/progress";
+import { ProblemDiagram } from "@/components/ProblemDiagram";
 
 export const Route = createFileRoute("/learn")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -110,6 +111,7 @@ function Learn() {
             {lesson.examples.map((ex, i) => (
               <article key={i} className="rounded-3xl glass-strong p-5">
                 <p className="font-display text-[20px] leading-snug">{ex.task[lang]}</p>
+                <ProblemDiagram topicId={lesson.topicId} prompt={ex.task[lang]} className="mt-3" />
                 <ol className="mt-3 space-y-2.5">
                   {ex.steps.map((s, j) => (
                     <li key={j} className="flex gap-3">

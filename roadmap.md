@@ -14,6 +14,7 @@
 - Formula handbook (/formulas): 11 sections, grades 1–12 (arithmetic, fractions/percent, identities, equations, geometry, trig, progressions, logs, combinatorics/probability, calculus, units)
 
 - Matura: AI study plan, 21-question timed mock exam with topic report, time per question, revision tips, mistake review
+- Contextual diagrams for geometry, coordinate, graph, angle, number-line, and solid-geometry exercises
 
 ## Open (needs user/platform action)
 - Real subscription billing (Lovable built-in payments needs a Pro workspace plan)

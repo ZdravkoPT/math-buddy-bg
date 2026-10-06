@@ -5,6 +5,7 @@ import { useI18n } from "@/lib/i18n";
 import { TOPIC_LABEL, generate, isCorrect, topicsForGrade, type Problem } from "@/lib/math-engine";
 import { KIND_LABEL, paperById, paperProblems } from "@/lib/materials";
 import { locked, today, topicState, update, useStore } from "@/lib/progress";
+import { ProblemDiagram } from "@/components/ProblemDiagram";
 
 const SESSION_LENGTH = 10;
 
@@ -143,6 +144,7 @@ function PaperRun({ paperId }: { paperId: string }) {
         </div>
 
         <p className="mt-4 whitespace-pre-line font-display text-[26px] leading-tight">{problem?.prompt}</p>
+        {problem && <ProblemDiagram topicId={problem.topicId} prompt={problem.prompt} />}
 
         {!result && (
           <>
@@ -407,6 +409,7 @@ function Practice() {
         <p className="mt-4 whitespace-pre-line font-display text-[26px] leading-tight">
           {problem?.prompt}
         </p>
+        {problem && <ProblemDiagram topicId={problem.topicId} prompt={problem.prompt} />}
 
         {!result && (
           <>
