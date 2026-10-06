@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - AI calls go through server route src/routes/api/* streaming the Lovable AI Gateway Responses API; the key never reaches the browser.
+- Exercise visuals use one reusable data-driven SVG renderer so labels stay synchronized with generated problem values.

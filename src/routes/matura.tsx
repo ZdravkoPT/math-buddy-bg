@@ -5,6 +5,7 @@ import { MockExam } from "@/components/MockExam";
 import { StudyPlan } from "@/components/StudyPlan";
 import { useI18n } from "@/lib/i18n";
 import type { Bi } from "@/lib/materials";
+import { ProblemDiagram } from "@/components/ProblemDiagram";
 
 export const Route = createFileRoute("/matura")({
   head: () => ({
@@ -142,13 +143,14 @@ const TOPICS: Topic[] = [
   },
 ];
 
-function TaskCard({ task }: { task: Task }) {
+function TaskCard({ task, topicId }: { task: Task; topicId: string }) {
   const { lang } = useI18n();
   const [shown, setShown] = useState(0);
   const done = shown >= task.steps.length;
   return (
     <div className="mt-3 rounded-2xl bg-card/70 p-4">
       <p className="font-display text-[16px] leading-snug">{task.q[lang]}</p>
+      <ProblemDiagram topicId={topicId === "geo" ? "pyramid" : topicId === "trig" ? "sinelaw" : topicId === "calc" ? "monotonic" : ""} prompt={task.q[lang]} className="mt-3" />
       <ol className="mt-3 space-y-2">
         {task.steps.slice(0, shown).map((s, i) => (
           <li key={i} className="flex gap-3 text-[14px] leading-relaxed">
@@ -194,7 +196,7 @@ function Matura() {
                 <li key={f} className="rounded-xl bg-card/70 px-3 py-1.5 font-display text-[13px]">{f}</li>
               ))}
             </ul>
-            {tp.tasks.map((task, i) => <TaskCard key={i} task={task} />)}
+            {tp.tasks.map((task, i) => <TaskCard key={i} task={task} topicId={tp.id} />)}
           </section>
         ))}
       </div>

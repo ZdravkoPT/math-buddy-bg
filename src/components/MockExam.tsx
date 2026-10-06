@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import type { Bi } from "@/lib/materials";
 import { WEAK_KEY } from "@/components/StudyPlan";
+import { ProblemDiagram } from "@/components/ProblemDiagram";
 
 type TopicKey = "quad" | "exp" | "trig" | "seq" | "prob" | "geo" | "calc" | "alg";
 type Q = { t: TopicKey; q: Bi; options: string[]; correct: number; steps: Bi[] };
@@ -110,6 +111,7 @@ export function MockExam() {
       </div>
       <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{TOPIC[q.t].label[lang]}</p>
       <p className="mt-1 font-display text-[17px] leading-snug">{q.q[lang]}</p>
+      <ProblemDiagram topicId={q.t === "geo" ? "pythagoras" : q.t === "calc" ? "tangent" : ""} prompt={q.q[lang]} className="mt-3" />
       <div className="mt-3 grid grid-cols-2 gap-2">
         {q.options.map((o, j) => (
           <button key={j} onClick={() => setAnswers((a) => a.map((x, k) => (k === idx ? j : x)))}
@@ -211,6 +213,7 @@ function Report({ answers, times, onReset }: { answers: (number | null)[]; times
               return (
                 <li key={i} className="rounded-2xl bg-card/70 p-4">
                   <p className="font-display text-[15px] leading-snug">{i + 1}. {q.q[lang]}</p>
+                  <ProblemDiagram topicId={q.t === "geo" ? "pythagoras" : q.t === "calc" ? "tangent" : ""} prompt={q.q[lang]} className="mt-3" />
                   <p className="mt-2 text-[13px] text-coral">{bg ? "Твоят отговор" : "Your answer"}: {a === null || a === undefined ? (bg ? "без отговор" : "no answer") : `${"АБВГ"[a]}) ${q.options[a]}`}</p>
                   <p className="text-[13px] font-semibold text-primary-deep">{bg ? "Верен отговор" : "Correct answer"}: {"АБВГ"[q.correct]}) {q.options[q.correct]}</p>
                   <ol className="mt-2 space-y-1.5 rounded-xl bg-accent/70 px-3 py-2.5 text-[13px] text-accent-foreground">

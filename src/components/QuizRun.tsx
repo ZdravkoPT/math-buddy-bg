@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { TOPIC_LABEL } from "@/lib/math-engine";
 import type { Mcq } from "@/lib/quiz";
+import { ProblemDiagram } from "@/components/ProblemDiagram";
 
 const LETTERS = ["А", "Б", "В", "Г"];
 
@@ -80,6 +81,7 @@ export function QuizRun({ title, build, minutes, onExit }: { title: string; buil
           <article key={i} className="rounded-3xl glass p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{bg ? "Задача" : "Task"} {i + 1}</p>
             <p className="mt-1 font-display text-[16px] leading-snug">{q.problem.prompt}</p>
+            <ProblemDiagram topicId={q.problem.topicId} prompt={q.problem.prompt} className="mt-3" />
             <p className="mt-2 text-[13px]"><span className="text-coral">{bg ? "Твоят отговор" : "Your answer"}: {ans[i] === null ? "—" : q.options[ans[i] as number]}</span> · <span className="font-semibold text-primary-deep">{bg ? "Верен" : "Correct"}: {q.problem.answer}</span></p>
             <ol className="mt-3 space-y-2">
               {q.problem.steps.map((s, j) => (
@@ -94,7 +96,8 @@ export function QuizRun({ title, build, minutes, onExit }: { title: string; buil
     );
   }
 
-  const q = qs[idx]!;
+  const q = qs[idx];
+  if (!q) return null;
   return (
     <section className="mt-4 rounded-3xl glass-strong p-5">
       <div className="flex items-center justify-between rounded-2xl bg-card/90 px-4 py-2.5">
@@ -103,6 +106,7 @@ export function QuizRun({ title, build, minutes, onExit }: { title: string; buil
       </div>
       <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{TOPIC_LABEL[q.problem.topicId]?.[lang] ?? (bg ? "Логика" : "Logic")}</p>
       <p className="mt-1 font-display text-[17px] leading-snug">{q.problem.prompt}</p>
+      <ProblemDiagram topicId={q.problem.topicId} prompt={q.problem.prompt} className="mt-3" />
       <div className="mt-3 grid grid-cols-2 gap-2">
         {q.options.map((o, j) => (
           <button key={j} onClick={() => setAns((a) => a.map((x, k) => (k === idx ? j : x)))}
